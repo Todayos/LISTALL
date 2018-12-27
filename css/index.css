@@ -1,0 +1,96 @@
+* {
+    padding: 0;
+    margin: 0;
+}
+
+body {
+    display: inline-block;
+    background-color: #444;
+    width: 100%;
+    height: 99vh;
+}
+
+#cube_back {
+    position: absolute;
+    float: left;
+    /* background-color: #f3f3f3; */
+    width: 50%;
+    height: 100%;
+}
+
+#login_back {
+    position: relative;
+    float: right;
+    /* background-color: #3cc51a; */
+    width: 50%;
+    height: 100%;
+}
+
+/* 旋转立方体left */
+
+@keyframes box {
+    from {
+        transform: rotateX(0deg) rotateY(0deg);
+        /* transform: rotateY(0deg); */
+    }
+    to {
+        transform: rotateX(360deg) rotateY(360deg);
+        /* transform: rotateY(360deg); */
+    }
+}
+
+#cube {
+    position: relative;
+    width: 350px;
+    height: 350px;
+    margin-left: 250px;
+    margin-top: 15%;
+    transform-style: preserve-3d;
+    animation: box 60s infinite;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+}
+
+#cube div {
+    width: 350px;
+    height: 350px;
+    border-radius: 20%;
+    position: absolute;
+    left: 0px;
+    top: 0px;
+    font-size: 40px;
+    line-height: 350px;
+    text-align: center;
+    color: rgb(245, 238, 238);
+}
+
+.one {
+    background-color: rgba(250, 0, 196, 0.7);
+    transform: rotateX(90deg) translateZ(350px);
+}
+
+.two {
+    background-color: rgb(252, 164, 33, 0.7);
+    transform: rotateX(-90deg) translateZ(350px);
+}
+
+.three {
+    background-color: rgb(255, 0, 0, 0.7);
+    transform: rotateY(90deg) translateZ(350px);
+}
+
+.four {
+    background-color: rgba(5, 202, 21, 0.7);
+    transform: rotateY(-90deg) translateZ(350px);
+}
+
+.five {
+    background-color: rgba(6, 10, 255, 0.7);
+    transform: rotateZ(360deg) translateZ(350px);
+    ;
+}
+
+.six {
+    background-color: rgba(251, 255, 2, 0.7);
+    transform: translateZ(-350px);
+}
