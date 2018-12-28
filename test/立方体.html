@@ -7,92 +7,198 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-        }
-
-        body {
-            background-color: rgb(114, 108, 108)
-        }
-
-        @keyframes name {
-            from {
-                transform: rotateX(0deg) rotateY(90deg);
+        /* 给两个正方体设置旋转动画 */
+        @keyframes my3d {
+            0% {
+                transform: rotateX(0) rotateY(0) rotateZ(0)
             }
 
-            to {
-                transform: rotateX(360deg) rotateY(360deg);
+            100% {
+                transform: rotateX(360deg) rotateY(360deg) rotateZ(360deg)
             }
         }
 
-        .con {
+        ul {
             width: 200px;
             height: 200px;
-            margin: 0 auto;
-            margin-top: 200px;
             position: relative;
+            perspective-origin: 50% 50%;
             transform-style: preserve-3d;
-            animation: name 10s ease-in 0.5;
+            margin: 200px auto;
+            list-style: none;
+            animation-name: my3d;
+            animation-play-state: running;
+            animation-duration: 10s;
             animation-iteration-count: infinite;
-            animation-direction: alternate;
         }
 
-        .con div {
+        ul li {
             width: 200px;
             height: 200px;
-            border-radius: 10px;
             position: absolute;
-            left: 0px;
-            top: 0px;
-            font-size: 30px;
-            line-height: 200px;
-            text-align: center;
-            /* perspective: 1800px; */
+            left: 0;
+            top: 0;
+            opacity: 0.7;
         }
 
-        .one {
-            background-color: rgba(0, 253, 169, 0.7);
-            transform: rotatex(90deg) translateZ(100px);
+        ul div {
+            width: 100px;
+            height: 100px;
+            position: absolute;
+            left: 50px;
+            top: 50px;
         }
 
-        .two {
-            background-color: rgba(25, 200, 190, 0.6);
-            transform: rotateX(-90deg) translateZ(100px);
+
+        /* 给里面的小正方体设置旋转 */
+        ul div:nth-last-child(6) {
+            transform: rotateX(0deg) translateZ(50px);
+            background-color: rgba(13, 228, 228, 0.8);
         }
 
-        .three {
-            background-color: rgba(155, 20, 50, 0.7);
+        ul div:nth-last-child(5) {
+            transform: rotateX(90deg) translateZ(-50px);
+            background-color: rgba(13, 228, 228, 0.8);
+        }
+
+        ul div:nth-last-child(4) {
+            transform: rotateX(0deg) translateZ(-50px);
+            background-color: rgba(13, 228, 228, 0.8);
+        }
+
+        ul div:nth-last-child(3) {
+            transform: rotateX(-90deg) translateZ(-50px);
+            background-color: rgba(13, 228, 228, 0.8);
+        }
+
+        ul div:nth-last-child(2) {
+            transform: rotateY(90deg) translateZ(-50px);
+            background-color: rgba(13, 228, 228, 0.8);
+        }
+
+        ul div:nth-last-child(1) {
+            transform: rotateY(90deg) translateZ(50px);
+            background-color: rgba(13, 228, 228, 0.8);
+        }
+
+
+
+        /* 给外面的大正方体设置旋转 */
+        ul li:first-child {
+            transform: rotateX(0deg) translateZ(100px);
+            background-color: rgba(13, 228, 228, 0.8);
+        }
+
+        ul li:nth-child(2) {
+            transform: rotateX(90deg) translateZ(-100px);
+            background-color: rgba(13, 228, 228, 0.8);
+        }
+
+        ul li:nth-child(3) {
+            transform: rotateX(0deg) translateZ(-100px);
+            background-color: rgba(13, 228, 228, 0.8);
+        }
+
+        ul li:nth-child(4) {
+            transform: rotateX(-90deg) translateZ(-100px);
+            background-color: rgba(13, 228, 228, 0.8);
+        }
+
+        ul li:nth-child(5) {
+            transform: rotateY(90deg) translateZ(-100px);
+            background-color: rgba(13, 228, 228, 0.8);
+        }
+
+        ul li:nth-child(6) {
             transform: rotateY(90deg) translateZ(100px);
+            background-color: rgba(13, 228, 228, 0.8);
         }
 
-        .four {
-            background-color: rgba(255, 128, 0, 0.7);
-            transform: rotateY(-90deg) translateZ(100px);
+
+        /* 设置伪类hover鼠标碰触 */
+
+        ul:hover li:first-child {
+            transition: 2s linear;
+            transform: translateZ(200px);
         }
 
-        .five {
-            background-color: rgba(247, 76, 8, 0.7);
-            transform: rotateZ(360deg) translateZ(100px);
-            ;
+        ul:hover li:nth-child(3) {
+            transition: 2s linear;
+            transform: translateZ(-200px);
         }
 
-        .six {
-            background-color: rgba(84, 87, 221, 0.6);
+        ul:hover li:nth-child(2) {
+            transition: 2s linear;
+            transform: rotateX(90deg) translateZ(-200px);
+        }
+
+        ul:hover li:nth-child(4) {
+            transition: 2s linear;
+            transform: rotateX(-90deg) translateZ(-200px);
+        }
+
+        ul:hover li:nth-child(5) {
+            transition: 2s linear;
+            transform: rotateY(90deg) translateZ(-200px);
+        }
+
+        ul:hover li:nth-child(6) {
+            transition: 2s linear;
+            transform: rotateY(90deg) translateZ(200px);
+        }
+
+        ul:hover div:nth-last-child(6) {
+            transition: 3s linear;
+            transform: translateZ(100px);
+        }
+
+        ul:hover div:nth-last-child(4) {
+            transition: 3s linear;
             transform: translateZ(-100px);
+        }
+
+        ul:hover div:nth-last-child(5) {
+            transition: 3s linear;
+            transform: rotateX(90deg) translateZ(-100px);
+        }
+
+        ul:hover div:nth-last-child(3) {
+            transition: 3s linear;
+            transform: rotateX(-90deg) translateZ(-100px);
+        }
+
+        ul:hover div:nth-last-child(2) {
+            transition: 3s linear;
+            transform: rotateY(90deg) translateZ(-100px);
+        }
+
+        ul:hover div:last-child {
+            transition: 3s linear;
+            transform: rotateY(90deg) translateZ(100px);
         }
     </style>
 </head>
 
 <body>
-    <div class="con">
-        <div class="one"></div>
-        <div class="two"></div>
-        <div class="three"></div>
-        <div class="four"></div>
-        <div class="five"></div>
-        <div class="six"></div>
-    </div>
+    ​
+    <ul>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+    </ul>
+
+    ​
+
 </body>
 
 </html>
