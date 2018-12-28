@@ -82,14 +82,14 @@ h3 {
     position: absolute;
     width: 20%;
     left: 15%;
-    top: 150px;
+    top: 35%;
     height: 100px;
     /* border: 1px solid #f3f3f3; */
 }
 
 .login {
     position: absolute;
-    top: 200px;
+    top: 30%;
     left: 50%;
     width: 500px;
     height: 400px;
